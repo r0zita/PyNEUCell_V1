@@ -27,7 +27,7 @@ While the present models focus on the mouse NMJ, the framework itself is **speci
 │
 ├── geometry/             # MCell geometry files
 └── NEURON_RATES/         # Precomputed NEURON-derived rate tables
-
+```
 
 ## Ion Channel Model
 
