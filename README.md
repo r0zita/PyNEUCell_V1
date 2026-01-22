@@ -134,20 +134,7 @@ Gating of recombinant small-conductance Ca-activated K⁺ channels by calcium.
 *Journal of General Physiology*, 111(4):565–581, 1998.  
 DOI: 10.1085/jgp.111.4.565
 
----
 
-### SK Channel States
-
-Each SK channel is represented by the following membrane-bound states:
-
-- `closed`
-- `closed2`
-- `closed3`
-- `closed4`
-- `open1`
-- `open2`
-
----
 
 ### Calcium-Dependent Transitions
 
