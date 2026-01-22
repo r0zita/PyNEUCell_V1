@@ -1,5 +1,8 @@
 # PyNEUCell_V1
-PyNEUCell is a Python framework for coupling NEURON electrophysiology with MCell4 reaction–diffusion simulations to model nerve terminal function for mouse NMJ
+
+PyNEUCell is a Python framework for coupling NEURON electrophysiology with MCell4 reaction–diffusion simulations to model nerve terminal function for the mouse neuromuscular junction (NMJ).
+
+---
 
 ## Overview
 
@@ -24,6 +27,7 @@ While the present models focus on the mouse NMJ, the framework itself is **speci
 │
 ├── geometry/             # MCell geometry files
 └── NEURON_RATES/         # Precomputed NEURON-derived rate tables
+
 
 ## Ion Channel Model
 
