@@ -185,16 +185,7 @@ With fixed rate constants:
 
 Compact SK Channel Reaction Diagram
 Calcium-dependent SK channel gating scheme:
-```
-          Ca²⁺            Ca²⁺            Ca²⁺
-C1  <────────>  C2  <────────>  C3  <────────>  C4
- ^                ^                ^
- |                |                |
- |                |                |
- |                +─── O1 ─────────+
- |                     ↑   ↓
- +─────────────── O2 <───> C4
-```
+
 C1–C4 : closed states with sequential Ca²⁺ binding
 O1,O2 : conducting open states
 
