@@ -3,7 +3,14 @@
 SynAPCell is a Python framework for coupling NEURON electrophysiology with MCell4 reaction–diffusion simulations to model nerve terminal function for the mouse neuromuscular junction (NMJ).
 
 ---
+## What MCellNEU Simulates
 
+MCellNEU simulates spike-driven calcium entry, diffusion, buffering, and
+calcium-dependent channel and sensor kinetics at presynaptic active zones
+of the mouse neuromuscular junction, using NEURON-derived action potentials
+to dynamically control MCell4 reaction–diffusion processes.
+
+---
 ## Overview
 
 Here we use **physiologically realistic, dynamically changing action potentials** to control molecular simulations, enabling a tight coupling between membrane electrophysiology and stochastic chemical dynamics.
