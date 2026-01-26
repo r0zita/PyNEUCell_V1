@@ -118,27 +118,24 @@ VGCCs are modeled using a four-state kinetic scheme (three closed states and one
 
 The voltage-dependent transition rates are given by:
 
-\[
-\alpha(V_m) = 0.06 \, e^{(V_m + 24)/14.5}
-\]
+### Voltage-Dependent VGCC Gating Rates
 
-\[
-\beta(V_m) = \frac{1.7}{e^{(V_m + 34)/16.9} + 1}
-\]
+alpha(Vm) = 0.06 * exp((Vm + 24) / 14.5)
 
-where \( V_m(t) \) is the membrane potential (mV) corresponding to the presynaptic action potential waveform.
+beta(Vm) = 1.7 / (exp((Vm + 34) / 16.9) + 1)
 
-The time-dependent rate constants \( \alpha(t) \) and \( \beta(t) \) are precomputed and read by MCell at simulation startup.
+where Vm(t) is the membrane potential (mV) corresponding to the presynaptic action potential waveform.
+
+The time-dependent rate constants alpha(t) and beta(t) are precomputed and read by MCell at simulation startup.
 
 ---
 
 ### Calcium Influx Through Open VGCCs
 
-Calcium entry through open VGCCs is modeled by stochastic emission of Ca²⁺ ions with a Poisson probability determined by a time-dependent rate constant:
+k(t) = gamma * (G / (2 * e)) * (Vm(t) - E_Ca)
 
-\[
-k(t) = \gamma \, \frac{G}{2e} \, \left( V_m(t) - E_{Ca} \right)
-\]
+gamma = [Ca2+]_ext / (2 mM)
+
 
 where:
 
