@@ -141,7 +141,7 @@ where:
 
 - \( G = 2.4 \, \text{pS} \) is the single-channel conductance  
 - \( e \) is the elementary charge  
-- \( E_{Ca} = +50 \, \text{mV} \) is the calcium reversal potential  
+- \( E_{Ca} = +60 \, \text{mV} \) is the calcium reversal potential  
 - \( \gamma = \frac{[Ca^{2+}]_{\text{ext}}}{2 \, \text{mM}} \) accounts for extracellular calcium scaling  
 
 The rate \( k(t) \) is precomputed and used to generate stochastic Ca²⁺ release events during the simulation.
