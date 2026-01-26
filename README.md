@@ -1,6 +1,6 @@
-# PyNEUCell_V1
+# SynAPCell_V1
 
-PyNEUCell is a Python framework for coupling NEURON electrophysiology with MCell4 reaction–diffusion simulations to model nerve terminal function for the mouse neuromuscular junction (NMJ).
+SynAPCell is a Python framework for coupling NEURON electrophysiology with MCell4 reaction–diffusion simulations to model nerve terminal function for the mouse neuromuscular junction (NMJ).
 
 ---
 
@@ -25,9 +25,25 @@ While the present models focus on the mouse NMJ, the framework itself is **speci
 ├── customization.py      # Simulation-specific customization hooks
 ├── observables.py        # Output definitions and observables
 │
-├── geometry/             # MCell geometry files
+├── geometry/             # geometry files
 └── NEURON_RATES/         # Precomputed NEURON-derived rate tables
 ```
+## References
+
+1. **Laghaei R**, **Meriney SD**.  
+   *Microphysiological Modeling of the Structure and Function of Neuromuscular Transmitter Release Sites.*  
+   **Frontiers in Synaptic Neuroscience**, 14:917285, 2022.  
+   DOI: 10.3389/fnsyn.2022.917285
+
+2. **Ginebaugh SP**, **Cyphers ED**, **Lanka V**, **Ortiz G**, **Miller EW**, **Laghaei R**, **Meriney SD**.  
+   *The Frog Motor Nerve Terminal Has Very Brief Action Potentials and Three Electrical Regions Predicted to Differentially Control Transmitter Release.*  
+   **Journal of Neuroscience**, 40(18):3504–3516, 2020.  
+   DOI: 10.1523/JNEUROSCI.2415-19.2020
+
+3. **Ginebaugh SP**, **Badawi Y**, **Laghaei R**, **Mersky G**, **Wallace CJ**, **Tarr TB**, **Kaufhold C**, **Reddel S**, **Meriney SD**.  
+   *Simulations of active zone structure and function at mammalian NMJs predict that loss of calcium channels alone is not sufficient to replicate LEMS effects.*  
+   **Journal of Neurophysiology**, 129(5):1259–1277, 2023.  
+   DOI: 10.1152/jn.00404.2022
 
 ## Ion Channel Model
 
