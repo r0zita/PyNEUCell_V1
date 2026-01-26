@@ -182,14 +182,13 @@ SK channels are modeled using a calcium-dependent gating scheme with the followi
 - `closed4`
 - `open1`
 - `open2`
-```text
 SK channel state invariant:
 
 6 active zones
 × 4 SK channels per active zone
 × 2 maximum open states per channel
 ----------------------------------
-= 48 maximum SK open states ```
+= 48 maximum SK open states 
 
 #### Calcium-Dependent Gating
 
