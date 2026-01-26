@@ -67,7 +67,16 @@ The presynaptic active zone is modeled using an explicit, state-based descriptio
 All channels are immobile and confined to the presynaptic membrane.
 
 ---
+## Action Potential Protocol
 
+The current implementation simulates **four presynaptic action potentials**.
+Each action potential produces a distinct calcium species, allowing temporal
+separation of calcium influx and downstream reactions across spikes.
+
+Action-potential–dependent gating and calcium release rates are read from
+precomputed NEURON tables stored in `NEURON_RATES/`.
+
+---
 ### Voltage-Gated Calcium Channels (VGCCs)
 
 Each VGCC is represented by a multi-state Markov model with the following membrane-bound states:
@@ -268,5 +277,12 @@ With fixed rate constants:
 
 ---
 
+## Customization
+
+Simulation length, time step, and test runs can be modified via
+`shared.parameter_overrides` without editing model files.
+
+Dynamic model behavior (e.g., SK-dependent rate switching) is implemented
+in `customization.py`.
 
 
