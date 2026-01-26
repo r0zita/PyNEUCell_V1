@@ -172,7 +172,16 @@ DOI: 10.1085/jgp.111.4.565
 
 ### SK (Small-Conductance Potassium) Channels
 
-Each active zone also contains **4 SK channels**, positioned with a small lateral offset (5 nm) from the corresponding VGCCs.
+Each active zone also contains **4 SK channels**, positioned with a small lateral offset (5 nm) from the corresponding VGCCs. 
+
+The maximum number of simultaneously open SK channel states in the model is fixed by geometry and channel stoichiometry:
+
+- **6 active zones**
+- **4 SK channels per active zone**
+- **Maximum of 2 open states per SK channel**
+
+This yields a hard upper bound of **48 SK open states** in the model. 
+Any value exceeding this bound indicates an internal inconsistency and triggers a runtime error.
 
 SK channels are modeled using a calcium-dependent gating scheme with the following states:
 
@@ -182,13 +191,6 @@ SK channels are modeled using a calcium-dependent gating scheme with the followi
 - `closed4`
 - `open1`
 - `open2`
-SK channel state invariant:
-
-6 active zones
-× 4 SK channels per active zone
-× 2 maximum open states per channel
-----------------------------------
-= 48 maximum SK open states 
 
 #### Calcium-Dependent Gating
 
