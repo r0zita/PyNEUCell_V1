@@ -62,36 +62,6 @@ k3_control_short_3_tables = load_k3_tables(3)
 k3_control_short_4_tables = load_k3_tables(4)
 
 
-""" 
-# ===============================
-# SANITY PRINT: K3 FIRST ROW
-# ===============================
-
-for sk in SK_BINS:
-    print(
-        f"[K3 FIRST] SK{sk} | "
-        f"AP1:{k3_control_short_1_tables[sk][0]} "
-        f"AP2:{k3_control_short_2_tables[sk][0]} "
-        f"AP3:{k3_control_short_3_tables[sk][0]} "
-        f"AP4:{k3_control_short_4_tables[sk][0]}"
-    )
-
-# =========================================================
-# SANITY PRINT (CONFIRM LOAD)
-# =========================================================
-
-for sk in SK_BINS:
-    print(
-        f"[FIRST] SK{sk} | "
-        f"ac1c2:{ac1c2_tables[sk][0]} "
-        f"bc2c1:{bc2c1_tables[sk][0]} "
-        f"ac2c3:{ac2c3_tables[sk][0]} "
-        f"bc3c2:{bc3c2_tables[sk][0]} "
-        f"ac3o1:{ac3o1_tables[sk][0]} "
-        f"bo1c3:{bo1c3_tables[sk][0]}"
-    )
- """
-
 # =========================================================
 # INITIAL VARIABLE RATE TABLES (USED BY SUBSYSTEM)
 # =========================================================
