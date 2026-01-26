@@ -6,8 +6,6 @@ import shared
 import mcell as m
 import parameters
 
-from parameters import *
-
 # ---- subsystem ----
 
 MODEL_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -57,20 +55,6 @@ for az in range(1, 7):
             absorptive_properties.append(sp_a)
             uid += 1
 
-
-# ==========================================
-# Combine into SurfaceClasses 
-# ==========================================
-
-transparent_to_all_diffusing_molecules = m.SurfaceClass(
-    name = 'transparent_to_all_diffusing_molecules',
-    properties = transparent_properties
-)
-
-absorb_all_calcium_ions = m.SurfaceClass(
-    name = 'absorb_all_calcium_ions',
-    properties = absorptive_properties
-)
 
 # ============================
 # Unbound Sensors (syt1 and syt7)
