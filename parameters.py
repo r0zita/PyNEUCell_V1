@@ -133,29 +133,3 @@ for parameter_name, value in shared.parameter_overrides.items():
 def not_defined(parameter_name):
     return parameter_name not in globals()
 
-
-# ---- simulation setup ----
-
-if not_defined('ITERATIONS'):
-    ITERATIONS = 6300000
-
-if not_defined('TIME_STEP'):
-    TIME_STEP = 1e-08
-
-if not_defined('DUMP'):
-    DUMP = False
-# Output sampling interval (in timesteps)
-OUTPUT_EVERY_N_TIMESTEPS = 5.0e-07 / 1e-08    # equals 50
-# Output sampling interval for visualization (in timesteps)
-VIZ_EVERY_N_TIMESTEPS = 10000
-
-if not_defined('EXPORT_DATA_MODEL'):
-    EXPORT_DATA_MODEL = True
-
-if not_defined('SEED'):
-    SEED = 1
-elif len(sys.argv) == 3 and sys.argv[1] == '-seed':
-    shared.parameter_overrides['SEED'] = int(sys.argv[2])
-
-
-
