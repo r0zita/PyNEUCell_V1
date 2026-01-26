@@ -99,6 +99,58 @@ Calcium release rates are **time-varying** and are read from precomputed NEURON 
 
 This design allows realistic action potential waveforms—not square pulses—to directly control calcium influx.
 
+
+
+## VGCC Kinetics and Calcium Influx Model
+
+The VGCC gating and calcium influx model implemented in **MCellNEU** is based on the following study:
+
+Dittrich M, Pattillo JM, King JD, Cho S, Stiles JR, Meriney SD.  
+**An Excess-Calcium-Binding-Site Model Predicts Neurotransmitter Release at the Neuromuscular Junction.**  
+*Biophysical Journal*, 104(12):2751–2763, 2013.  
+DOI: https://doi.org/10.1016/j.bpj.2013.05.023
+
+---
+
+### Voltage-Dependent VGCC Gating Rates
+
+VGCCs are modeled using a four-state kinetic scheme (three closed states and one open state), driven by a time-dependent membrane voltage waveform \( V_m(t) \).
+
+The voltage-dependent transition rates are given by:
+
+\[
+\alpha(V_m) = 0.06 \, e^{(V_m + 24)/14.5}
+\]
+
+\[
+\beta(V_m) = \frac{1.7}{e^{(V_m + 34)/16.9} + 1}
+\]
+
+where \( V_m(t) \) is the membrane potential (mV) corresponding to the presynaptic action potential waveform.
+
+The time-dependent rate constants \( \alpha(t) \) and \( \beta(t) \) are precomputed and read by MCell at simulation startup.
+
+---
+
+### Calcium Influx Through Open VGCCs
+
+Calcium entry through open VGCCs is modeled by stochastic emission of Ca²⁺ ions with a Poisson probability determined by a time-dependent rate constant:
+
+\[
+k(t) = \gamma \, \frac{G}{2e} \, \left( V_m(t) - E_{Ca} \right)
+\]
+
+where:
+
+- \( G = 2.4 \, \text{pS} \) is the single-channel conductance  
+- \( e \) is the elementary charge  
+- \( E_{Ca} = +50 \, \text{mV} \) is the calcium reversal potential  
+- \( \gamma = \frac{[Ca^{2+}]_{\text{ext}}}{2 \, \text{mM}} \) accounts for extracellular calcium scaling  
+
+The rate \( k(t) \) is precomputed and used to generate stochastic Ca²⁺ release events during the simulation.
+
+
+
 ---
 
 ### SK (Small-Conductance Potassium) Channels
