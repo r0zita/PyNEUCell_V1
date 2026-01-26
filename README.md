@@ -189,7 +189,7 @@ SK channel state invariant:
 × 4 SK channels per active zone
 × 2 maximum open states per channel
 ----------------------------------
-= 48 maximum SK open states
+= 48 maximum SK open states ```
 
 #### Calcium-Dependent Gating
 
