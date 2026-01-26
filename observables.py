@@ -4,14 +4,14 @@
 import os
 import shared
 import mcell as m
+import parameters
 
-from parameters import *
 from subsystem import *
 from geometry import *
 from instantiation import vesicles
 
-
-
+SEED = parameters.SEED
+OUTPUT_EVERY_N_TIMESTEPS = parameters.OUTPUT_EVERY_N_TIMESTEPS
 MODEL_PATH = os.path.dirname(os.path.abspath(__file__))
 
 vesicles_list = [
