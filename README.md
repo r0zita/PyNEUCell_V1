@@ -143,8 +143,7 @@ gamma = [Ca2+]_ext / (2 mM)
   Single-channel conductance of the VGCC, measured in 2 mM external Ca²⁺  
   (from experimental recordings).
 
-- **e**  
-  Elementary charge.
+- **e** Elementary charge.
 
 - **E_Ca = +60 mV**  
   Calcium reversal potential, defining the driving force  
@@ -157,8 +156,6 @@ gamma = [Ca2+]_ext / (2 mM)
 The time-dependent rate **k(t)** is precomputed from the membrane voltage
 waveform and used to generate stochastic Ca²⁺ release events from open
 VGCCs during the simulation.
-
-
 
 ---
 ## SK Channel Kinetics and Rate Constants
@@ -252,6 +249,8 @@ With fixed rate constants:
 - `k(o1 → c3) = 1000 s⁻¹`
 - `k(c4 → o2) = 1200 s⁻¹`
 - `k(o2 → c4) = 100 s⁻¹`
+
+---
 
 
 
