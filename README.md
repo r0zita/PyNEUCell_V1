@@ -137,14 +137,26 @@ k(t) = gamma * (G / (2 * e)) * (Vm(t) - E_Ca)
 gamma = [Ca2+]_ext / (2 mM)
 
 
-where:
+### VGCC Calcium Influx Parameters
 
-- \( G = 2.4 \, \text{pS} \) is the single-channel conductance  
-- \( e \) is the elementary charge  
-- \( E_{Ca} = +60 \, \text{mV} \) is the calcium reversal potential  
-- \( \gamma = \frac{[Ca^{2+}]_{\text{ext}}}{2 \, \text{mM}} \) accounts for extracellular calcium scaling  
+- **G = 2.4 pS**  
+  Single-channel conductance of the VGCC, measured in 2 mM external Ca²⁺  
+  (from experimental recordings).
 
-The rate \( k(t) \) is precomputed and used to generate stochastic Ca²⁺ release events during the simulation.
+- **e**  
+  Elementary charge.
+
+- **E_Ca = +60 mV**  
+  Calcium reversal potential, defining the driving force  
+  Vm(t) − E_Ca.
+
+- **γ = [Ca²⁺]_ext / (2 mM)**  
+  Scaling factor accounting for deviations from the 2 mM external Ca²⁺
+  concentration used to measure VGCC conductance.
+
+The time-dependent rate **k(t)** is precomputed from the membrane voltage
+waveform and used to generate stochastic Ca²⁺ release events from open
+VGCCs during the simulation.
 
 
 
