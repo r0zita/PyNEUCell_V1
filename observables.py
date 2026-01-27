@@ -50,6 +50,8 @@ observables = m.Observables()
 # =====================================================================
 # ####     VISUALIZATION SPECIES LIST
 # =====================================================================
+# NOTE: viz_species is intentionally verbose for debugging.
+# Users may comment out blocks for faster visualization.
 
 viz_species = []
 
