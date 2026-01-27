@@ -484,11 +484,12 @@ for az in range(1,7):
         ))
 
 # ---------------------------------------------------------
-# FIXED BUFFER REACTIONS  (unbound_fixed_buffer ↔ bound_fixed_buffer)
+# FIXED BUFFER REACTIONS  (unbound_fixed_buffer <-> bound_fixed_buffer)
 # ---------------------------------------------------------
 
-FIXBUF_ON  = 1e8     # Ca + unbound_fixed_buffer → bound_fixed_buffer
-FIXBUF_OFF = 1e4     # bound_fixed_buffer → Ca + unbound_fixed_buffer
+FIXBUF_ON  = 1e8     # M^-1 s^-1  (diffusion-limited)# Ca unbound_fixed_buffer -> bound_fixed_buffer 
+FIXBUF_OFF = 1e3     # s^-1 # bound_fixed_buffer -> Ca + unbound_fixed_buffer
+# Kd = FIXBUF_OFF / FIXBUF_ON = 1e3 / 1e8 = 1e-5 M = 10 µM
 
 fixed_buffer_reactions = []
 
