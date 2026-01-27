@@ -285,4 +285,52 @@ Simulation length, time step, and test runs can be modified via
 Dynamic model behavior (e.g., SK-dependent rate switching) is implemented
 in `customization.py`.
 
+## Endogenous Calcium Buffering (in subsystem.py)
+
+Presynaptic calcium buffering is modeled using an immobile (fixed) buffer
+to represent the effective buffering capacity of endogenous proteins and
+structural binding sites near active zones.
+
+Fixed Buffer Parameters (defined in subsystem.py)
+
+Buffer concentration:
+    100 µM (1.0 × 10⁻⁴ M)
+
+Diffusion constant:
+    0 (immobile buffer)
+
+Buffer Kinetics
+
+Calcium binding and unbinding:
+
+    Ca²⁺ + unbound_fixed_buffer ⇄ bound_fixed_buffer
+
+with rate constants:
+
+    k_on  = 1 × 10⁸ M⁻¹ s⁻¹   (diffusion-limited)
+    k_off = 1 × 10³ s⁻¹
+
+This yields an effective dissociation constant:
+
+    K_d = k_off / k_on = 10 µM
+
+Rationale
+
+These parameters were chosen to approximate physiologically realistic
+presynaptic calcium buffering at the neuromuscular junction:
+
+- Strong enough to restrict calcium microdomains near VGCCs
+- Weak enough to allow rapid calcium signaling and SK channel activation
+- Consistent with experimental and modeling estimates for presynaptic terminals
+
+The fixed buffer primarily shapes:
+- local calcium amplitude
+- calcium decay kinetics
+- coupling between VGCCs, SK channels, and calcium sensors
+
+Notes
+
+- Buffer parameters can be adjusted in subsystem.py to explore buffering strength.
+- Increasing buffer concentration or lowering k_off strengthens calcium confinement.
+- Increasing k_off weakens buffering and enhances calcium spread.
 
