@@ -119,7 +119,7 @@ This design allows realistic action potential waveforms—not square pulses—to
 
 ## VGCC Kinetics and Calcium Influx Model
 
-The VGCC gating and calcium influx model implemented in **MCellNEU** is based on the following study:
+The VGCC gating and calcium influx model implemented in **SynAPCell** is based on the following study:
 
 Dittrich M, Pattillo JM, King JD, Cho S, Stiles JR, Meriney SD.  
 **An Excess-Calcium-Binding-Site Model Predicts Neurotransmitter Release at the Neuromuscular Junction.**  
