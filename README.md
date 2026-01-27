@@ -363,7 +363,7 @@ Syt7 (high-affinity sensor):
 - Together, Syt1 and Syt7 enable fast synchronous and slower facilitation-like
   components of neurotransmitter release
 
-References
+### References
 
 - Chapman ER. Synaptotagmin: a Ca²⁺ sensor that triggers exocytosis?
   Nat Rev Mol Cell Biol. 2002;3:498–508.
