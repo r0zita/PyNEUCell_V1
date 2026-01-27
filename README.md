@@ -372,3 +372,72 @@ Syt7 (high-affinity sensor):
 - Jackman SL, Regehr WG. The mechanisms and functions of synaptic facilitation.
   Neuron. 2017;94:447–464.
 
+## Running the Model and Output Files
+
+### Running the Simulation
+
+The model is executed from the top-level directory using:
+    python model.py -seed [seed number]
+
+The seed value controls the stochastic realization and determines the
+output directory name.
+
+### Output Structure
+
+All reaction and count outputs are written to:
+
+    react_data/
+    └── seed_XXXX/
+
+where XXXX is the zero-padded seed number used for the run.
+
+This directory contains time-series files for:
+- calcium ions (per AZ, channel, and action potential)
+- summed calcium signals
+- VGCC open states
+- SK channel open states
+- synaptotagmin binding states (if enabled, located in observables.py)
+
+### Visualization outputs are written to:
+
+    viz_data/seed_XXXX/
+
+### File Descriptor Limit (Important)
+
+Because the model generates a large number of output files, some systems
+may exceed the default open-file limit.
+
+If you encounter file descriptor errors, increase the limit before running:
+
+    ulimit -n 10000
+
+(or higher, depending on system limits)
+
+### Visualization and Performance Notes
+
+Spatial visualization output is written to:
+
+    viz_data/seed_XXXX/
+
+These files can be visualized using **CellBlender** (Blender + MCell plugin)
+to inspect calcium diffusion, channel states, and sensor binding.
+
+Disabling Visualization for Speed
+
+Visualization can significantly increase I/O load and slow down simulations.
+For faster runs, visualization output can be disabled by commenting out or
+removing the VizOutput block in `observables.py`.
+
+Disabling visualization is recommended for:
+- long simulations
+- parameter sweeps
+- batch runs across many seeds
+
+Notes
+
+- Each run produces one set of outputs per seed.
+- Output file names are consistent across seeds and differ by directory.
+- Reducing the number of observables can significantly lower I/O load.
+- Visualization is intended primarily for debugging and qualitative inspection.
+- Quantitative analysis should rely on files in `react_data/`.
+
