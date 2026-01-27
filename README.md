@@ -96,7 +96,8 @@ If this runs without errors, the environment is ready.
 From the project directory, run:
 
     python model.py -seed 1
-
+    
+Outputs are written to react_data/seed_0001/.
 
 
 ---
