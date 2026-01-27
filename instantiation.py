@@ -1,6 +1,3 @@
-# WARNING: This is an automatically generated file and will be overwritten
-#          by CellBlender on the next model export.
-
 import os
 import shared
 import mcell as m
@@ -10,7 +7,6 @@ from subsystem import *
 from geometry import *
 MODEL_PATH = os.path.dirname(os.path.abspath(__file__))
 
-# --- MCell3 compatibility: create namespace "vesicles" for output paths ---
 class Namespace:
     pass
 
@@ -27,14 +23,6 @@ for name, obj in global_copy:
 for name, obj in global_copy:
     if name.endswith("_sites_all") and (name.startswith("sensor_") or name.startswith("sensor_Y_")):
         setattr(vesicles, name, obj)
-#print("DEBUG:", hasattr(vesicles, "sensor_1_1_sites_all"))
-#print("Attached sites_all regions:", [x for x in dir(vesicles) if "sites_all" in x])
-
-# ---- instantiation ----
-# ---- release sites ----
-# ---- surface classes assignment ----
-
-
 
 # Automatically group all sensors into dictionaries
 ##############################  RL
@@ -63,10 +51,6 @@ SENSOR_Y_PRESENT = {
 # Surface Classes
 
 endcaps_Material.surface_class = absorb_all_calcium_ions
-#### main_membrane_Material.surface_class = absorb_all_calcium_ions
-
-###print("endcaps_Material.surface_class is now:", endcaps_Material.surface_class)
-
 sensors = {}
 sensors_Y = {}
 
@@ -125,38 +109,13 @@ for (az, ves), site_list in sensors_Y.items():
         sensor_obj.initial_surface_releases = globals()[initial_list_name]
         setattr(vesicles, name, sensor_obj)
 
-'''
-# =============================
-# DEBUG PRINT: list all sensors
-# =============================
-
-print("\n==== NORMAL SENSORS (syt1) ====")
-for (az, ves), site_list in sorted(sensors.items()):
-    print(f"Vesicle {az}_{ves}:")
-    for name in sorted(site_list, key=lambda x: int(x.split('_')[-1])):
-        site_id = int(name.split("_")[-1])
-        number = SENSOR_PRESENT[site_id]
-        print(f"  {name}: initial_release = {number}")
-
-print("\n==== Y-SENSORS (syt7) ====")
-for (az, ves), site_list in sorted(sensors_Y.items()):
-    print(f"Vesicle {az}_{ves}:")
-    for name in sorted(site_list, key=lambda x: int(x.split('_')[-1])):
-        site_id = int(name.split("_")[-1])
-        number = SENSOR_Y_PRESENT[site_id]
-        print(f"  {name}: initial_release = {number}")
-
-print("\n==== Done listing sensors. ====\n")
-#######################################
-'''
-
 # ---- compartments assignment ----
 
 buffer_release1 = m.ReleaseSite(
     name = 'buffer_release1',
     complex = unbound_fixed_buffer.inst(),
     region = buffer_box,
-    concentration = 2.0e-05
+    concentration = 1.0e-04  # 100 µM
 )
 
 # ================================
@@ -220,39 +179,8 @@ for az in range(1, 7):       # Active zones 1…6
 channel_release_site = m.ReleaseSite(
     name = 'channel_release_site',
     molecule_list = molecule_list_channel_release_site,
-    site_diameter = 1.00000000000000002e-02
+    site_diameter = 1.0e-02
 )
-
-'''
-###  -- temporary 
-print("\n==== CALCIUM SPECIES DETECTED ====")
-
-calcium_species = []
-
-for name, obj in list(globals().items()):
-    if name.startswith("ca_"):
-        parts = name.split("_")
-
-        # Normal pattern: ca_AZ_1_CH_AP
-        if len(parts) == 5:
-            try:
-                az  = int(parts[1])
-                ch  = int(parts[3])
-                ap  = int(parts[4])
-                calcium_species.append((az, ch, ap, name))
-            except ValueError:
-                pass  # ignore anything not matching the pattern
-
-# Sort nicely:
-calcium_species.sort()
-
-# Print results:
-for az, ch, ap, name in calcium_species:
-    print(f"  AZ {az}, CH {ch}, AP {ap}   -->   {name}")
-
-print(f"\nTotal calcium species: {len(calcium_species)}")
-print("==== END OF CALCIUM LIST ====\n")
-'''
 
 # ==========================================
 # SK CHANNEL OFFSETS (per AZ, per channel)
@@ -303,56 +231,7 @@ sk_channel_release_site = m.ReleaseSite(
     site_diameter = 1.0e-2
 )
 
-'''
-###  -- temporary 
-print("\n==== SK CHANNELS DETECTED ====")
 
-SK_OFFSET_X = 0.020  # must match instantiation offset
-
-sk_states = []
-sk_positions = []
-
-for name, obj in list(globals().items()):
-    if name.startswith(("closed_SK_", "closed2_SK_", "closed3_SK_", 
-                        "closed4_SK_", "open1_SK_", "open2_SK_")):
-        
-        parts = name.split("_")   # example: closed_SK_6_1_4 → ["closed","SK","6","1","4"]
-        if len(parts) == 5:
-            try:
-                az = int(parts[2])
-                ch = int(parts[4])
-
-                # Base Ca-channel coordinate
-                base_x, base_y = CHANNEL_COORDS[(az, ch)]
-
-                # Apply SK offset
-                x = base_x + SK_OFFSET_X
-                y = base_y
-                z = Z_COORD
-
-                sk_states.append((az, ch, name))
-                sk_positions.append((name, x, y, z))
-
-            except ValueError:
-                pass
-
-# Sort nicely:
-sk_states.sort()
-
-# Print states
-for az, ch, sname in sk_states:
-    print(f"  AZ {az}, CH {ch}   -->   {sname}")
-
-print(f"\nTotal SK channel states: {len(sk_states)}\n")
-
-print("---- SK POSITIONS (with offset) ----")
-for name, x, y, z in sk_positions:
-    print(f"{name:25s}  at  ({x:.4f}, {y:.4f}, {z:.5f})")
-
-print("==== END OF SK LIST ====\n")
-'''
-
-########################### RL
 # ---- create instantiation object and add components ----
 
 instantiation = m.Instantiation()
