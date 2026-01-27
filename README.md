@@ -293,13 +293,13 @@ structural binding sites near active zones.
 
 Fixed Buffer Parameters (defined in subsystem.py)
 
-Buffer concentration:
+### Buffer concentration:
     100 µM (1.0 × 10⁻⁴ M)
 
-Diffusion constant:
+### Diffusion constant:
     0 (immobile buffer)
 
-Buffer Kinetics
+### Buffer Kinetics
 
 Calcium binding and unbinding:
 
@@ -314,7 +314,7 @@ This yields an effective dissociation constant:
 
     K_d = k_off / k_on = 10 µM
 
-Rationale
+### Rationale
 
 These parameters were chosen to approximate physiologically realistic
 presynaptic calcium buffering at the neuromuscular junction:
