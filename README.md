@@ -328,9 +328,5 @@ The fixed buffer primarily shapes:
 - calcium decay kinetics
 - coupling between VGCCs, SK channels, and calcium sensors
 
-Notes
 
-- Buffer parameters can be adjusted in subsystem.py to explore buffering strength.
-- Increasing buffer concentration or lowering k_off strengthens calcium confinement.
-- Increasing k_off weakens buffering and enhances calcium spread.
 
