@@ -328,5 +328,40 @@ The fixed buffer primarily shapes:
 - calcium decay kinetics
 - coupling between VGCCs, SK channels, and calcium sensors
 
+## Synaptotagmin Calcium Sensors (Syt1 and Syt7) (in subsystem.py)
+
+The model includes two classes of presynaptic calcium sensors representing
+synaptotagmin isoforms with distinct calcium affinities and kinetics.
+
+### Sensor Species
+- Syt1: fast, low-affinity calcium sensor
+- Syt7: slow, high-affinity calcium sensor
+
+Both sensors are immobile and localized to vesicle-associated membrane sites.
+
+### Calcium Binding Reactions
+
+Calcium binding is modeled using simple mass-action kinetics:
+
+    Ca²⁺ + unbound_sensor   ⇄ bound_sensor     (Syt1)
+    Ca²⁺ + unbound_sensor_Y ⇄ bound_sensor_Y   (Syt7)
+
+### Rate Constants (defined in subsystem.py)
+
+Syt1 (fast sensor):
+    k_on  = 2.2 × 10⁷ M⁻¹ s⁻¹
+    k_off = 9.1 × 10² s⁻¹
+
+Syt7 (high-affinity sensor):
+    k_on  = 1.0 × 10⁷ M⁻¹ s⁻¹
+    k_off = 1.5 × 10¹ s⁻¹
+
+### Functional Roles
+
+- Syt1 responds rapidly to brief, high-amplitude calcium microdomains
+- Syt7 integrates residual calcium across action potentials
+- Together, Syt1 and Syt7 enable fast synchronous and slower facilitation-like
+  components of neurotransmitter release
+
 
 
