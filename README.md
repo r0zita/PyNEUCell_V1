@@ -52,6 +52,58 @@ While the present models focus on the mouse NMJ, the framework itself is **speci
    **Journal of Neurophysiology**, 129(5):1259–1277, 2023.  
    DOI: 10.1152/jn.00404.2022
 
+
+---
+## MCell4 Setup and Running the Model (Linux)
+
+This model requires MCell4 with Python bindings (mcell.so), typically installed
+via CellBlender.
+
+### Python Environment
+
+A clean Python 3.11 environment is recommended:
+
+    python3.11 -m venv ~/mcell4_env
+    source ~/mcell4_env/bin/activate
+    pip install -U pip numpy
+
+### MCell Library Path
+
+Ensure that the MCell Python library (mcell.so) is discoverable. This is usually
+located inside the CellBlender installation directory.
+
+Set the following environment variables to point to your local MCell installation:
+
+    export MCELL_PATH=/path/to/cellblender/extensions/mcell
+    export PYTHONPATH="$MCELL_PATH/lib:$PYTHONPATH"
+    export LD_LIBRARY_PATH="$MCELL_PATH/lib:$LD_LIBRARY_PATH"
+
+(These can be added to ~/.bashrc for convenience.)
+
+### Testing the Installation
+
+Verify that MCell imports correctly:
+
+    python - <<'PY'
+    import mcell as m
+    print("MCell loaded successfully")
+    PY
+
+If this runs without errors, the environment is ready.
+
+### Running the Model
+
+From the project directory, run:
+
+    python model.py -seed 1
+
+
+
+---
+
+
+---
+
 ## Ion Channel Model
 
 The presynaptic active zone is modeled using an explicit, state-based description of voltage-gated calcium channels (VGCCs) and calcium-activated potassium (SK) channels.
