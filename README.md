@@ -422,22 +422,15 @@ Spatial visualization output is written to:
 These files can be visualized using **CellBlender** (Blender + MCell plugin)
 to inspect calcium diffusion, channel states, and sensor binding.
 
-Disabling Visualization for Speed
+#### Disabling Visualization for Speed
 
 Visualization can significantly increase I/O load and slow down simulations.
 For faster runs, visualization output can be disabled by commenting out or
 removing the VizOutput block in `observables.py`.
 
-Disabling visualization is recommended for:
+#### Disabling visualization is recommended for:
 - long simulations
 - parameter sweeps
 - batch runs across many seeds
 
-Notes
-
-- Each run produces one set of outputs per seed.
-- Output file names are consistent across seeds and differ by directory.
-- Reducing the number of observables can significantly lower I/O load.
-- Visualization is intended primarily for debugging and qualitative inspection.
-- Quantitative analysis should rely on files in `react_data/`.
 
