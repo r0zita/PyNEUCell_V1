@@ -363,5 +363,12 @@ Syt7 (high-affinity sensor):
 - Together, Syt1 and Syt7 enable fast synchronous and slower facilitation-like
   components of neurotransmitter release
 
+References
 
+- Chapman ER. Synaptotagmin: a Ca²⁺ sensor that triggers exocytosis?
+  Nat Rev Mol Cell Biol. 2002;3:498–508.
+- Südhof TC. The synaptic vesicle cycle.
+  Annu Rev Neurosci. 2004;27:509–547.
+- Jackman SL, Regehr WG. The mechanisms and functions of synaptic facilitation.
+  Neuron. 2017;94:447–464.
 
